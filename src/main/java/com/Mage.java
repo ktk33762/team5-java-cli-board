@@ -1,14 +1,14 @@
 package com;
 
-public class Warrior extends BaseUser {
-    public Warrior(String name) {
+public class Mage extends BaseUser {
+    public Mage(String name) {
         super(name);
         setLevel(1);
     }
 
     @Override
     public String getJob() {
-        return "전사";
+        return "마법사";
     }
 
     @Override
@@ -16,8 +16,8 @@ public class Warrior extends BaseUser {
         this.level = level;
         setCurExp(0);
         setExp(level * 10);
-        setHp(level * 30);
-        setAttackPower(level * 3);
-        setDefensePower(level * 2);
+        setHp(level * 20);
+        setAttackPower(level * 4);
+        setDefensePower(level);
     }
 }
