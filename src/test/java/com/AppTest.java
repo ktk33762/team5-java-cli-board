@@ -13,6 +13,7 @@ public class AppTest {
     void t1() {
         String rs = AppTestRunner.run("""
                 용사
+                종료
                 """);
         assertThat(rs)
                 .contains("닉네임을 입력하여 주세요!")
@@ -25,7 +26,9 @@ public class AppTest {
     void t2() {
         String rs = AppTestRunner.run("""
                 용사
+                전투
                 1
+                종료
                 """);
         assertThat(rs)
                 .contains("야생에서 슬라임 (이)가 나타났다!")
