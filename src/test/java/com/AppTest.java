@@ -10,6 +10,7 @@ public class AppTest {
     @DisplayName("닉네임 입력 받기")
     void t1() {
         String rs = AppTestRunner.run("""
+                1
                 용사
                 종료
                 """);
@@ -23,6 +24,7 @@ public class AppTest {
     @DisplayName("슬라임과 전투 : 슬라임 처치")
     void t2() {
         String rs = AppTestRunner.run("""
+                1
                 용사
                 전투
                 1
@@ -41,6 +43,7 @@ public class AppTest {
     @DisplayName("슬라임과 전투 : 도망")
     void t3() {
         String rs = AppTestRunner.run("""
+                1
                 용사
                 전투
                 1
@@ -58,12 +61,14 @@ public class AppTest {
     @DisplayName("정보 조회")
     void t4() {
         String rs = AppTestRunner.run("""
+                1
                 용사
                 정보 조회
                 종료
                 """);
         assertThat(rs)
                 .contains("닉네임 : 용사")
+                .contains("직업 : Warrior")
                 .contains("레벨 : 1")
                 .contains("체력 : 30")
                 .contains("공격력 : 3")
@@ -75,6 +80,7 @@ public class AppTest {
     @DisplayName("고블린 전투 : 고블린 처치")
     void t5() {
         String rs = AppTestRunner.run("""
+                1
                 용사
                 전투
                 1
@@ -96,6 +102,7 @@ public class AppTest {
     @DisplayName("유저 사망 처리 : 마을에서 부활")
     void t6() {
         String rs = AppTestRunner.run("""
+                1
                 용사
                 전투
                 2
@@ -114,11 +121,13 @@ public class AppTest {
     @DisplayName("유저 사망 처리 : 게임 재시작")
     void t7() {
         String rs = AppTestRunner.run("""
+                1
                 용사
                 전투
                 2
                 1
                 2
+                1
                 용사2
                 종료
                 """);
@@ -136,6 +145,7 @@ public class AppTest {
     @DisplayName("유저 사망 처리 : 종료")
     void t8() {
         String rs = AppTestRunner.run("""
+                1
                 용사
                 전투
                 2
@@ -146,6 +156,23 @@ public class AppTest {
                 .contains("용사(이)가 고블린 전투에서 전사하였습니다.")
                 .contains("다음 중 선택하여 주세요.")
                 .contains("1.마을에서 부활(경험치 패널티) 2.게임 재시작 3.게임 종료")
+                .contains("게임을 종료합니다.");
+    }
+
+    @Test
+    @DisplayName("마법사 캐릭터 생성")
+    void t9() {
+        String rs = AppTestRunner.run("""
+                2
+                용사
+                종료
+                """);
+        assertThat(rs)
+                .contains("마법사를 선택하셨습니다.")
+                .contains("닉네임을 입력하여 주세요!")
+                .contains("닉네임 : ")
+                .contains("용사")
+                .contains("Mage 용사(이)가 마을에 왔습니다.")
                 .contains("게임을 종료합니다.");
     }
 }
