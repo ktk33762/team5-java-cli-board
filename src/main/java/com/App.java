@@ -18,7 +18,7 @@ public class App {
         Warrior warrior = new Warrior(name);
         System.out.printf("닉네임 설정 완료! %s\n",warrior.getName());
         while(true) {
-            System.out.println("종료, 전투, 정보 조회 중 선택하여주세요.");
+            System.out.println("종료, 전투 중 선택하여주세요.");
             System.out.print("명령) ");
             String cmd = scanner.nextLine().trim();
             switch (cmd) {
@@ -29,11 +29,6 @@ public class App {
                 case "전투" -> {
                     BattleManager bm = new BattleManager(warrior, new Slime(), scanner);
                     bm.start();
-                }
-                case "정보 조회" -> {
-                    System.out.printf("닉네임 : %s\n", warrior.getName());
-                    System.out.printf("레벨 : %d\n", warrior.getLevel());
-                    System.out.printf("체력 : %d\n", warrior.getHp());
                 }
                 default -> System.out.println("다시 입력해주세요.");
             }
