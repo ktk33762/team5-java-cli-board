@@ -104,4 +104,59 @@ public class AppTest {
                 .contains("용사(이)가 고블린(을)를 공격")
                 .contains("용사(이)가 고블린(을)를 처치 성공");
     }
+
+    @Test
+    @DisplayName("유저 사망 처리 : 마을에서 부활")
+    void t7() {
+        String rs = AppTestRunner.run("""
+                용사
+                전투
+                2
+                1
+                1
+                종료
+                """);
+        assertThat(rs)
+                .contains("용사(이)가 고블린 전투에서 전사하였습니다.")
+                .contains("다음 중 선택하여 주세요.")
+                .contains("1.마을에서 부활(경험치 패널티) 2.게임 재시작 3.게임 종료")
+                .contains("용사(이)가 마을에서 부활하였습니다.(경험치 10% 패널티)");
+    }
+
+    @Test
+    @DisplayName("유저 사망 처리 : 게임 재시작")
+    void t8() {
+        String rs = AppTestRunner.run("""
+                용사
+                전투
+                2
+                1
+                2
+                용사
+                종료
+                """);
+        assertThat(rs)
+                .contains("용사(이)가 고블린 전투에서 전사하였습니다.")
+                .contains("다음 중 선택하여 주세요.")
+                .contains("1.마을에서 부활(경험치 패널티) 2.게임 재시작 3.게임 종료")
+                .contains("게임을 재시작합니다.")
+                .contains("닉네임을 입력하여 주세요!");
+    }
+
+    @Test
+    @DisplayName("유저 사망 처리 : 종료")
+    void t9() {
+        String rs = AppTestRunner.run("""
+                용사
+                전투
+                2
+                1
+                3
+                """);
+        assertThat(rs)
+                .contains("용사(이)가 고블린 전투에서 전사하였습니다.")
+                .contains("다음 중 선택하여 주세요.")
+                .contains("1.마을에서 부활(경험치 패널티) 2.게임 재시작 3.게임 종료")
+                .contains("게임을 종료합니다.");
+    }
 }
