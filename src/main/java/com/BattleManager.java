@@ -26,7 +26,7 @@ public class BattleManager {
             }
         }
         else if(select.equals("2")) {
-            System.out.println("도망쳤습니다.");
+            System.out.println("잽싸게 도망쳤습니다.");
         }
         else {
             System.out.println("다시 입력해주세요");
