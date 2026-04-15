@@ -49,6 +49,7 @@ public class ArticleServiceTest {
     @Test
     @DisplayName("update 호출 시 제목과 내용이 변경된다")
     void update() {
+        service.write("원래 제목", "원래 내용");
 
         boolean result = service.update(1, "바뀐 제목", "바뀐 내용");
 
