@@ -1,5 +1,8 @@
 package com;
 
+import com.sound.SoundManager;
+import com.sound.SoundType;
+
 public class Goblin extends Monster {
     public Goblin() {
         setName("고블린");
@@ -24,5 +27,15 @@ public class Goblin extends Monster {
                     /`    \\      /    `\\
                            고블린
                     """;
+    }
+
+    @Override
+    public void playAppearSound() {
+        SoundManager.getInstance().playSfx(SoundType.SFX_GOBLIN_APPEAR);
+    }
+
+    @Override
+    protected void playHitSound() {
+        SoundManager.getInstance().playSfx(SoundType.SFX_GOBLIN_HIT);
     }
 }

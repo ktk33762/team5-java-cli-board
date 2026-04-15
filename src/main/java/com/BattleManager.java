@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 public class BattleManager {
     private final BaseCharacter user;
-    private final BaseCharacter monster;
+    private final Monster monster;
     private final Scanner scanner;
 
-    public BattleManager(BaseCharacter user, BaseCharacter monster, Scanner scanner) {
+    public BattleManager(BaseCharacter user, Monster monster, Scanner scanner) {
         this.user = user;
         this.monster = monster;
         this.scanner = scanner;
@@ -15,6 +15,7 @@ public class BattleManager {
 
     public int start() {
         System.out.println(monster);
+        monster.playAppearSound();
         System.out.printf("야생에서 %s(이)가 나타났다!.\n어떻게 하시겠습니까?(숫자 입력)\n 1.전투 2.도망\n", monster.getName());
         System.out.print("숫자를 입력하여 주세요. -> ");
         String select = scanner.nextLine().trim();

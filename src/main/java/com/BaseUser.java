@@ -1,5 +1,8 @@
 package com;
 
+import com.sound.SoundManager;
+import com.sound.SoundType;
+
 public abstract class BaseUser extends BaseCharacter {
     protected int level;
     protected int exp;
@@ -36,6 +39,7 @@ public abstract class BaseUser extends BaseCharacter {
     public void addExp(int amount) {
         this.curExp += amount;
         if (curExp >= exp) {
+            SoundManager.getInstance().playSfxAsync(SoundType.SFX_LEVEL_UP);
             setLevel(level + 1);
             System.out.println("레벨업! 현재 레벨: " + level);
         }
@@ -51,6 +55,7 @@ public abstract class BaseUser extends BaseCharacter {
     public void takeDamage(BaseCharacter attacker, int damage) {
         hp = Math.max(hp - Math.max(damage - defensePower, 1), 0);
         System.out.printf("%s 남은 HP : %d\n", this.getName(), this.getHp());
+        SoundManager.getInstance().playSfx(SoundType.SFX_PLAYER_HIT);
     }
 }
 
