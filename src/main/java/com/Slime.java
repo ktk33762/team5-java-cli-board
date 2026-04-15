@@ -8,4 +8,17 @@ public class Slime extends Monster {
         setDefensePower(1);
         setExpPoint(10);
     }
+
+    @Override
+    public String toString() {
+        return """
+                         _______
+                       /         \\
+                      |  o     o  |
+                      |     ^     |
+                      |   \\___/   |
+                       \\_________/
+                          슬라임
+                    """;
+    }
 }

@@ -62,12 +62,10 @@ public class App {
                                     return;
                                 }
                                 break;
-                            }
-                            else if (num.equals("3")) {
+                            } else if (num.equals("3")) {
                                 System.out.println("이전 메뉴로 돌아갑니다.");
                                 break;
-                            }
-                            else {
+                            } else {
                                 System.out.println("다시 입력해주세요.");
                             }
                         }

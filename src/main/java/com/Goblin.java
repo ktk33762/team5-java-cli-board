@@ -8,4 +8,21 @@ public class Goblin extends Monster {
         setDefensePower(2);
         setExpPoint(20);
     }
+
+    @Override
+    public String toString() {
+        return """
+                          ,      ,
+                         /(.-""-.)\\
+                     |\\  \\/      \\/  /|
+                     | \\ / =.  .= \\ / |
+                     \\( \\   o\\/o   / )/
+                      \\_, '-/  \\-' ,_/
+                        /   \\__/   \\
+                        \\ \\__/\\__/ /
+                      ___\\ \\|--|/ /___
+                    /`    \\      /    `\\
+                           고블린
+                    """;
+    }
 }

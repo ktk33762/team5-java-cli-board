@@ -14,24 +14,23 @@ public class BattleManager {
     }
 
     public int start() {
+        System.out.println(monster);
         System.out.printf("야생에서 %s(이)가 나타났다!.\n어떻게 하시겠습니까?(숫자 입력)\n 1.전투 2.도망\n", monster.getName());
-        System.out.print("명령) ");
+        System.out.print("숫자를 입력하여 주세요. -> ");
         String select = scanner.nextLine().trim();
-        if(select.equals("1")) {
-            while(!user.getDied() && !monster.getDied()) {
+        if (select.equals("1")) {
+            while (!user.getDied() && !monster.getDied()) {
                 user.attack(monster);
-                if(monster.getDied()) break;
+                if (monster.getDied()) break;
                 monster.attack(user);
-                if(user.getDied()) break;
+                if (user.getDied()) break;
             }
-            if(user.getDied()) {
+            if (user.getDied()) {
                 return gameOver(monster);
             }
-        }
-        else if(select.equals("2")) {
+        } else if (select.equals("2")) {
             System.out.println("잽싸게 도망쳤습니다.");
-        }
-        else {
+        } else {
             System.out.println("다시 입력해주세요");
             return start();
         }
@@ -46,7 +45,7 @@ public class BattleManager {
         String num = scanner.nextLine().trim();
         switch (num) {
             case "1" -> {
-                if(user instanceof Warrior warrior) {
+                if (user instanceof Warrior warrior) {
                     double penaltyExp = (double) warrior.getCurExp() * 0.9;
                     warrior.setCurExp((int) penaltyExp);
                     warrior.setHp(warrior.getLevel() * 30);

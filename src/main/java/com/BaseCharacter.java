@@ -34,7 +34,7 @@ public abstract class BaseCharacter implements BaseInterface {
         return defensePower;
     }
 
-    public void setDefensePower(int defensePower){
+    public void setDefensePower(int defensePower) {
         this.defensePower = defensePower;
     }
 
