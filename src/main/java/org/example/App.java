@@ -64,8 +64,20 @@ public class App {
                         out.println("존재하지 않는 게시글입니다.");
                     }
                 }
+                case "help" -> printHelp();
                 default -> out.println("알 수 없는 명령어입니다.");
             }
         }
+    }
+
+    private void printHelp() {
+        out.println("=== 사용 가능한 명령어 ===");
+        out.println("  list          게시글 목록 보기");
+        out.println("  write         게시글 작성");
+        out.println("  detail <id>   게시글 상세 보기");
+        out.println("  delete <id>   게시글 삭제");
+        out.println("  help          도움말 보기");
+        out.println("  exit          종료");
+        out.println("========================");
     }
 }
