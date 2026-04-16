@@ -64,6 +64,19 @@ public class App {
                         out.println("존재하지 않는 게시글입니다.");
                     }
                 }
+                case "update" -> {
+                    Article article = service.findById(rq.getId());
+                    if (article == null) {
+                        out.println("존재하지 않는 게시글입니다.");
+                    } else {
+                        out.print("새 제목: ");
+                        String title = scanner.nextLine().trim();
+                        out.print("새 내용: ");
+                        String content = scanner.nextLine().trim();
+                        service.update(rq.getId(), title, content);
+                        out.println("수정되었습니다.");
+                    }
+                }
                 case "help" -> printHelp();
                 default -> out.println("알 수 없는 명령어입니다.");
             }
@@ -76,6 +89,7 @@ public class App {
         out.println("  write         게시글 작성");
         out.println("  detail <id>   게시글 상세 보기");
         out.println("  delete <id>   게시글 삭제");
+        out.println("  update <id>   게시글 수정");
         out.println("  help          도움말 보기");
         out.println("  exit          종료");
         out.println("========================");
