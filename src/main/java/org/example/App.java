@@ -11,7 +11,11 @@ public class App {
 
                 case 1 -> {
                     AppContext.clearConsole();
-                    AppContext.hunt.run();
+                    AppContext.hunt.Run();
+                }
+                case 2 -> {
+                    AppContext.clearConsole();
+                    AppContext.store.Run();
                 }
                 case 5 -> {
                     System.out.println("종료합니다.");

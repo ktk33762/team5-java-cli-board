@@ -11,40 +11,48 @@ public class Hunt {
         monster = new Monster();
     }
 
-    public void run() {
+    public void Run() {
         do {
-            setMonsterNumber = AppContext.getResponse(Hunt::huntingSelector);
+            setMonsterNumber = AppContext.getResponse(Hunt::HuntingSelector);
+
+            if (setMonsterNumber == 0)
+                break;
+
             monster.MonsterSetting(setMonsterNumber);
 
             AppContext.clearConsole();
-            huntingHeader();
+            HuntingHeader();
             monster.Status();
             Character.Status();
 
-            while (hunting()) {}
+            while (Hunting()) {
+
+            }
         } while (setMonsterNumber >= 1 && setMonsterNumber <= 3);
+        AppContext.clearConsole();
     }
 
-    static void huntingSelector() {
-        huntingHeader();
+    static void HuntingSelector() {
+        HuntingHeader();
         System.out.println("1. 고블린");
         System.out.println("2. 오크");
         System.out.println("3. 오우거");
         System.out.println("0. 뒤로가기");
     }
 
-    static void huntingHeader() {
+    static void HuntingHeader() {
         System.out.println("== 사냥터 ==");
     }
 
-    static void selectChoice() {
+    static void SelectChoice() {
         System.out.println("1. 공격");
         System.out.println("0. 뒤로가기");
     }
 
-    boolean hunting() {
-        switch (AppContext.getResponse(Hunt::selectChoice)) {
+    boolean Hunting() {
+        switch (AppContext.getResponse(Hunt::SelectChoice)) {
             case 0 -> {
+                AppContext.clearConsole();
                 return false;
             }
             case 1 -> {
@@ -57,7 +65,7 @@ public class Hunt {
                     monster.Attack();
 
                 System.out.println();
-                huntingHeader();
+                HuntingHeader();
                 monster.Status();
                 Character.Status();
             }

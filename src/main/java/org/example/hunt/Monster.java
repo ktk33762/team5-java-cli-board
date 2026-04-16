@@ -57,12 +57,12 @@ public class Monster {
     }
 
     void Attack() {
-        if (Character.hp + Character.defense <= attack)
+        if (Character.getHp() + Character.getDefense() <= attack)
             Character.PlayerDead();
 
         else {
-            if (Character.defense < attack) {
-                int damage = attack - Character.defense;
+            if (Character.getDefense() < attack) {
+                int damage = attack - Character.getDefense();
                 System.out.printf("플레이어가 %s만큼의 데미지를 입었습니다.\n", damage);
                 Character.hp -= damage;
             }

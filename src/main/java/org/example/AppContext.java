@@ -2,6 +2,7 @@ package org.example;
 
 import lombok.Getter;
 import org.example.hunt.Hunt;
+import org.example.store.Store;
 
 import java.util.Scanner;
 
@@ -10,11 +11,13 @@ public class AppContext {
     public static Scanner scanner;
     public static Character characterStatus;
     public static Hunt hunt;
+    public static Store store;
 
     public static void renew() {
         scanner = new Scanner(System.in);
         characterStatus = new Character();
         hunt = new Hunt();
+        store = new Store();
     }
 
     public static void clearConsole() {

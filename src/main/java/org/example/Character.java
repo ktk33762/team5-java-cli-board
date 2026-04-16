@@ -3,6 +3,8 @@ package org.example;
 import lombok.Getter;
 import lombok.Setter;
 import org.example.hunt.Monster;
+import org.example.store.Armor;
+import org.example.store.Weapon;
 
 @Getter
 @Setter
@@ -10,12 +12,13 @@ public class Character {
     public static int attack;
     public static int defense;
     public static int gold;
-    @Setter
     public static int hp;
     public static int maxHp;
     public static int level;
     public static int exp;
     public static int maxExp;
+    public static Weapon weapon;
+    public static Armor armor;
 
     public Character() {
         level = 1;
@@ -26,19 +29,59 @@ public class Character {
         hp = maxHp;
         exp = 50;
         maxExp = exp;
+        weapon = null;
+        armor = null;
+    }
+
+    public static int getAttack() {
+        if (weapon != null)
+            return weapon.getAddAttack() + attack;
+
+        else
+            return attack;
+    }
+
+    public static int getDefense() {
+        if (armor != null)
+            return armor.getAddDefense() + defense;
+
+        else
+            return defense;
+    }
+
+    public static int getMaxHp() {
+        if (armor != null)
+            return armor.getAddHp() + maxHp;
+
+        else
+            return maxHp;
+    }
+
+    public static int getHp() {
+        if (armor != null)
+            return armor.getAddHp() + hp;
+
+        else
+            return hp;
     }
 
     public static void Status() {
-        System.out.printf("캐릭터의 레벨 : %s \n", level);
-        System.out.printf("캐릭터의 공격력 : %s \n", attack);
-        System.out.printf("캐릭터의 방어력 : %s \n", defense);
-        System.out.printf("캐릭터의 골드 : %s \n", gold);
-        System.out.printf("캐릭터의 체력 : %s / %s \n", hp, maxHp);
-        System.out.printf("캐릭터의 경험치 : %s / %s \n", exp, maxExp);
+        System.out.printf("캐릭터의 레벨 : %d \n", level);
+        System.out.printf("캐릭터의 공격력 : %d \n", attack);
+        System.out.printf("캐릭터의 방어력 : %d \n", defense);
+        System.out.printf("캐릭터의 골드 : %d \n", gold);
+        System.out.printf("캐릭터의 체력 : %d / %d \n", hp, maxHp);
+        System.out.printf("캐릭터의 경험치 : %d / %d \n", exp, maxExp);
+        if (weapon != null)
+            System.out.printf("무기의 추가 공격력 : %d \n", weapon.getAddAttack());
+        if (armor != null) {
+            System.out.printf("방어구의 추가 방어력 : %d \n", armor.getAddDefense());
+            System.out.printf("방어구의 추가 체력 : %d \n", armor.getAddHp());
+        }
     }
 
     public static void PlayerAttacked(Monster monster) {
-        int damage = attack - monster.getDefense();
+        int damage = getAttack() - monster.getDefense();
 
         if (damage > 0) {
             System.out.printf("플레이어가 몬스터에게 %s의 데미지를 입혔습니다.\n", damage);
@@ -62,7 +105,7 @@ public class Character {
     private static void LevelUp() {
         System.out.println("플레이어가 레벨업했습니다.\n");
         maxHp += 50;
-        hp = maxHp;
+        hp = getMaxHp();
         level += 1;
         exp -= maxExp;
         maxExp += 50;
