@@ -1,7 +1,6 @@
 package com;
 
 import com.sound.SoundManager;
-import com.sound.SoundType;
 
 import java.util.Scanner;
 
@@ -35,7 +34,7 @@ public class App {
             BaseUser user = (select.equals("1")) ? new Warrior(name) : new Mage(name);
             System.out.printf("닉네임 설정 완료! %s\n", user.getName());
             System.out.println("====================================");
-            SoundManager.getInstance().playBgm(SoundType.BGM_TOWN);
+            //SoundManager.getInstance().playBgm(SoundType.BGM_TOWN);
             System.out.printf("%s %s(이)가 마을에 왔습니다.\n", user.getJob(), user.getName());
             boolean isGameOver = false;
             while (!isGameOver) {
@@ -58,18 +57,18 @@ public class App {
                                 Monster monster = num.equals("1") ? new Slime() : new Goblin();
                                 BattleManager bm = new BattleManager(user, monster, scanner);
                                 System.out.println("전투를 시작합니다.");
-                                SoundManager.getInstance().playBgm(SoundType.BGM_BATTLE);
+                                //SoundManager.getInstance().playBgm(SoundType.BGM_BATTLE);
                                 int rs = bm.start();
                                 if (rs == 2) {
                                     System.out.println("게임을 재시작합니다.");
-                                    SoundManager.getInstance().stopBgm();
+                                    //SoundManager.getInstance().stopBgm();
                                     isGameOver = true;
                                 } else if (rs == 3) {
                                     System.out.println("게임을 종료합니다.");
-                                    SoundManager.getInstance().shutdown();
+                                    //SoundManager.getInstance().shutdown();
                                     return;
                                 }
-                                SoundManager.getInstance().playBgm(SoundType.BGM_TOWN);
+                                //SoundManager.getInstance().playBgm(SoundType.BGM_TOWN);
                                 break;
                             } else if (num.equals("3")) {
                                 System.out.println("이전 메뉴로 돌아갑니다.");

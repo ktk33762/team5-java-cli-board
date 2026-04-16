@@ -31,7 +31,7 @@ public class Goblin extends Monster {
 
     @Override
     public void playAppearSound() {
-        SoundManager.getInstance().playSfx(SoundType.SFX_GOBLIN_APPEAR);
+        //SoundManager.getInstance().playSfx(SoundType.SFX_GOBLIN_APPEAR);
     }
 
     @Override

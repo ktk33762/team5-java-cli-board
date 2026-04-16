@@ -21,7 +21,7 @@ public class Monster extends BaseCharacter {
     public void takeDamage(BaseCharacter attacker, int damage) {
         hp = Math.max(hp - Math.max(damage - defensePower, 1), 0);
         System.out.printf("%s 남은 HP : %d\n", this.getName(), this.getHp());
-        playHitSound();
+        //playHitSound();
         if (hp == 0) {
             System.out.printf("%s(이)가 %s(을)를 처치 성공!!\n", attacker.getName(), this.getName());
             System.out.println("획득한 경험치: " + expPoint);

@@ -27,7 +27,7 @@ public class Slime extends Monster {
 
     @Override
     public void playAppearSound() {
-        SoundManager.getInstance().playSfx(SoundType.SFX_SLIME_APPEAR);
+        //SoundManager.getInstance().playSfx(SoundType.SFX_SLIME_APPEAR);
     }
 
     @Override
