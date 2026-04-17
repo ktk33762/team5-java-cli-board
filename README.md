@@ -6,30 +6,22 @@
 
 1. 사냥
    -> 	- 고블린
-   - 오크
-   - 오우거
+         - 오크
+         - 오우거
 2. 상점
    ->
     - 구매
         - 칼
         - 방어구
-    - 판매
-    - 포션
-
-3. 장비
-    - 칼 :
-    - 방어구 :
-
-4. 인벤토리
-    - 칼 :
-    - 방어구 :
-    - 포션 :
-    - 잡템 :
-
+        - 
 구조 : 
-    - main
+    - src
         - hunt
+          -> Hunt
+          -> Monster
         - store
-        - equipment
-        - inventory
-        -> Control.java
+          -> Armor
+          -> Store
+          -> Weapon
+
+시간이 촉박하여 사이즈를 조금 많이 줄였고 refactor를 하지 못했으며 Test는 작업하면서 Test를 하고 작성을 하지 못했습니다.
