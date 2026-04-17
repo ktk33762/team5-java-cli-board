@@ -1,0 +1,1 @@
+rootProject.name = "team5-java-cli-board"
