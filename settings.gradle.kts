@@ -1,1 +1,1 @@
-rootProject.name = "team5-java-cli-board"
+rootProject.name = "Article_project"
